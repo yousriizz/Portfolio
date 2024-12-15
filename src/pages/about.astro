@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Yousri Zouhdi" description="About Yousri Zouhdi">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Merci de votre visite. Lisez ci-dessous pour en savoir plus sur moi."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Jeanine White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Présentation</h2>
+				<div class="content">
+					<p>
+						Je suis actuellement étudiant en BTS SIO, option SISR, avec une forte passion pour les technologies et l'informatique. Mon objectif est d'intégrer une école d'ingénieur afin de développer mes compétences et de me spécialiser dans des domaines innovants, notamment l'intelligence artificielle. Enrichi par une expérience internationale grâce à un stage Erasmus+ au Japon, j'ai pu acquérir des compétences techniques tout en découvrant de nouvelles cultures professionnelles. Je suis motivé à poursuivre mon parcours dans un environnement stimulant où je pourrai relever des défis techniques et contribuer à des projets ambitieux.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Parcours</h2>
+				<div class="content">
+					<p>Bts SIO SISR (2023-2025)</p>
+					<p>Licence Math/Informatique (2021-2023)</p>
+					<p>Bac general (2021)</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>Gestion des systèmes et réseaux</p>
+					<p>Programmation et développement (Python, Java, PHP, HTML/CSS)</p>
+					<p>Administration de bases de données (MySQL, phpmyadmin)</p>
+					<p>Réseaux et communication (TCP/IP, DNS, DHCP)</p>
+					<p>Docker (création et gestion de containers)</p>
+					<p>Grafana (visualisation des données et monitoring)</p>
+					<p>Prometheus (monitoring et gestion des alertes)</p>
+					<p>HSRP (protocole de redondance de passerelle)</p>
+					<p>Active Directory (gestion des utilisateurs et des permissions)</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
